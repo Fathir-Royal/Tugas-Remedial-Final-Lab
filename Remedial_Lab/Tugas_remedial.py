@@ -67,18 +67,26 @@ def main():
 
         if pilihan == "1":
             print("\n-- Tambah Data Mahasiswa --")
-            nama = input("Masukkan Nama: ")
 
             while True:
-                nim = input("Masukkan NIM: ")
-                if nim in nim_set:
+                nama = input("Masukkan Nama: ").strip()
+                if nama:
+                    break
+                else:
+                    print("Nama tidak boleh kosong. Silakan coba lagi.")
+
+            while True:
+                nim = input("Masukkan NIM: ").strip()
+                if not nim:
+                    print("NIM tidak boleh kosong. Silakan coba lagi.")
+                elif nim in nim_set:
                     print("NIM sudah ada! Silakan masukkan NIM yang berbeda.")
                 else:
                     nim_set.add(nim)
                     break
 
             while True:
-                email = input("Masukkan Email: ")
+                email = input("Masukkan Email: ").strip()
                 if validasi_email(email):
                     break
                 else:
